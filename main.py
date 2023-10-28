@@ -19,6 +19,8 @@ init(autoreset=True)
 
 def main():
 
+    #LOGO= os.system(" cat opp.txt | lolcat")
+    #print(type(LOGO))
     if os.name=='posix':
         os.system(" figlet AMORCE | lolcat")
         print(Fore.CYAN+"●❯────────────────❮●●❯────────────────❮●)")
@@ -29,8 +31,13 @@ def main():
         motif="./opp.txt"
         with open(motif,'r')as motif:
             for i in motif.read():
-                print(i,end='')
-        print()        
+                print(Fore.CYAN+i,end='')
+        print()       
+
+    print()
+    print()
+    print(Style.BRIGHT+Fore.LIGHTGREEN_EX+'    [1]'+Fore.CYAN+" Determiner une paire dans un câble (ex: 232e paire dans un cable de 448p)")
+
 
 
 
