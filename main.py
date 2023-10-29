@@ -37,15 +37,15 @@ def main():
     amorces={1:{ 'quartes':quarte[0:4],
                 'paires':[paire1[1][0:4],  # la premiere couleur de la paire 1
                paire1[2][0:4],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire2[1][0:4],
-               paire2[2][0:4]
+               paire2[1][0:3],
+               paire2[2][0:3]
                         ]},
             
             2:{ 'quartes':quarte[3:7],
                'paires':[paire2[1][3:7],  # la premiere premier paire est la paire 2 
                paire2[2][3:7],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire1[1][4:8],
-               paire1[2][4:8]
+               paire1[1][4:7],
+               paire1[2][4:7]
                        ]},
             
             3:{ 'quartes':quarte[7:11],
