@@ -33,13 +33,42 @@ def main():
     1: [     "G"," G","G","G", "G",  "G","G","o","o","o","o",  "o","o", "o"],
         2:[  "Ba","J","N","ve","be", "M","R","Ba","J","N","Ve","Be","M","R"]}
     paire2={1:["I","I","I","I","I","I","I","Vi","Vi","Vi","Vi","Vi","Vi","Vi"],
-        2:["Be","M","R","Ba","J","N","Ve","Be","M","R","Ba","J","N","Ve"]}
+        2:[  "Be","M","R","Ba","J","N","Ve","Be","M","R","Ba","J","N","Ve"]}
+    amorces={1:{ 'quartes':quarte[0:4],
+                'paires':[paire1[1][0:4],  # la premiere couleur de la paire 1
+               paire1[2][0:4],  # la 2e couleur de la paire 1 ainsi de suite ...
+               paire2[1][0:4],
+               paire2[2][0:4]
+                        ]},
+            
+            2:{ 'quartes':quarte[3:7],
+               'paires':[paire2[1][3:7],  # la premiere premier paire est la paire 2 
+               paire2[2][3:7],  # la 2e couleur de la paire 1 ainsi de suite ...
+               paire1[1][4:8],
+               paire1[2][4:8]
+                       ]},
+            
+            3:{ 'quartes':quarte[7:11],
+               'paires':[paire1[1][7:11],  # la premiere couleur de la paire 1
+               paire1[2][7:11],  # la 2e couleur de la paire 1 ainsi de suite ...
+               paire2[1][7:10],
+               paire2[2][7:10]
+                            ]},
+            
+            4:{ 'quartes':quarte[10:15],
+               'paires':[paire2[1][10:14],  # la premiere couleur de la paire 1
+               paire2[2][10:14],  # la 2e couleur de la paire 1 ainsi de suite ...
+               paire1[1][11:14],
+               paire1[2][11:14]
 
 
-    #paire2_rempli = 
-    # print(paire2[1][0:6])
 
-    util.clear()
+                       ]  }}
+    
+    for key,value in amorces.items():
+        print(f" amorce{key} :{value}")
+
+    # util.clear()
     ok=" 【✔】"
     description = " le programme ultime pour les etudiants en RIT"
 
