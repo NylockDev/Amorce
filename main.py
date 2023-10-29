@@ -10,9 +10,9 @@ if os.name== 'nt':
     sys.exit(0)
 from time import sleep
 sys.path.append("app")
-# sys.path.append("util")
+sys.path.append("tools")
 from app import *
-
+from tools import LISTE, info, liste_serie_nr, liste_serie_rempli
 
 
 
@@ -65,12 +65,24 @@ def main():
 
                        ]  }}
     
-    for key,value in amorces.items():
-        print(f" amorce{key} :{value}")
+   # for key,value in amorces.items():
+    #    print(f" amorce{key} :{value}")
 
-    # util.clear()
+    util.clear()
     ok=" 【✔】"
     description = " le programme ultime pour les etudiants en RIT"
+    logo="""
+            
+
+┏━┓░░░░░░░┏┓░░░┏┓░  ┏━━┓┏━┳━┓┏━┓┏━┓┏━┓┏━┓
+┃╋┃┏┳┓┏━┓░┣┫┏━┓┃┗┓  ┃┏┓┃┃┃┃┃┃┃┃┃┃╋┃┃┏┛┃┳┛
+┃┏┛┃┏┛┃╋┃┏┛┃┃┻┫┃┏┫  ┃┣┫┃┃┃┃┃┃┃┃┃┃┓┫┃┗┓┃┻┓
+┗┛░┗┛░┗━┛┗━┛┗━┛┗━┛  ┗┛┗┛┗┻━┻┛┗━┛┗┻┛┗━┛┗━┛
+
+
+
+
+    """
 
     #LOGO= os.system(" cat opp.txt | lolcat")
     #print(type(LOGO))
@@ -100,15 +112,54 @@ def main():
     
     while True:
    
-        choix = input(' VOTRE CHOIX'+ Fore.CYAN+ ' ')
-
+#        choix = input(' VOTRE CHOIX'+ Fore.CYAN+ ' ')
+        choix='1'
         if choix == '1':
-            pass
+            util.clear()
+            print(logo)
+
+            while True:
+                print(Fore.CYAN+" Entrez la contenance en petrole du cable ou la serie")
+                contenance_oil = input(" exple( 074 ou rempli ou alors non (nr) )  ")
+
+                if not contenance_oil in liste_serie_nr:
+                    print(" la serie ou la contenance  n'est pas reconnu")
+                
+                elif not contenance_oil in liste_serie_rempli:
+                    
+                    print(" la serie ou la contenance  n'est pas reconnu")
+                
+                if contenance_oil != 'rempli' or 'nr':
+                    print(" tapez 'nr' pour non rempli SvP ")
+                    print(" assurez vous de taper 'rempli' entre autre")
+                    sleep(1)
+                    os.system(" clear")
+                else:    
+                    break
+
+            while True:
+                try:
+                    cable = int(input(Fore.YELLOW+" Quel est la capacité du cable? ex(1792)  "))
+                    pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez localiser dans le cable de "+cable+" paires"))
+                    break
+                except ValueError:
+                    print(Fore.RED+" entrez une valeur numerique")
+                    sleep(2)
+                    util.clear()
+                    print(logo)
+
+
+
+            info_cable= {'contenance':cable,
+                        'petrole':contenance_oil}
+            reperage_paire(info_cable,pair_to_lct)
+            break
+            
         elif choix == '2':
             pass
         elif choix == '3':
             pass
-        elif choix == '4':
+        elif choix == '3':
             pass
         else:
             print(Fore.RED+ " ERREUR: CHOIX INVALIDE")
