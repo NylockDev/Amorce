@@ -12,7 +12,15 @@ from time import sleep
 sys.path.append("app")
 sys.path.append("tools")
 from app import *
-from tools import LISTE, info, liste_serie_nr, liste_serie_rempli
+from tools import (LISTE, 
+                   info, 
+                   liste_serie_nr, 
+                   liste_serie_rempli,
+                   liste_cable,
+                   reperage_paire,
+
+
+                   )
 
 
 
@@ -119,29 +127,51 @@ def main():
             print(logo)
 
             while True:
-                print(Fore.CYAN+" Entrez la contenance en petrole du cable ou la serie")
-                contenance_oil = input(" exple( 074 ou rempli ou alors non (nr) )  ")
+                print(Fore.CYAN+" Le cable est-il rempli ou non si ce n'est pas donné tapez 's' pour rentrez plutot la serie")
+                msg_err=" tapez 'oui' ou 'non' ou 's'  "
 
-                if not contenance_oil in liste_serie_nr:
-                    print(" la serie ou la contenance  n'est pas reconnu")
-                
-                elif not contenance_oil in liste_serie_rempli:
-                    
-                    print(" la serie ou la contenance  n'est pas reconnu")
-                
-                if contenance_oil != 'rempli' or 'nr':
-                    print(" tapez 'nr' pour non rempli SvP ")
-                    print(" assurez vous de taper 'rempli' entre autre")
-                    sleep(1)
-                    os.system(" clear")
-                else:    
+                contenance_oil = input( msg_err)            
+                if contenance_oil == 'oui':
+                    contenance_oil = True
                     break
+
+                elif contenance_oil == 'non':
+
+                    contenance_oil = False
+                    break
+
+                elif contenance_oil == 's':
+
+                    serie = input(" quel est la serie? ")
+
+                    if serie in liste_serie_nr:
+                        contenance_oil = False
+                        break
+                    
+                    elif serie in liste_serie_rempli:
+                        contenance_oil = True
+                        break
+                    else:
+                        print(" la serie n'est pas reconnu")
+                else:
+                    print(Fore.RED+" Entreé Invalide")
 
             while True:
                 try:
                     cable = int(input(Fore.YELLOW+" Quel est la capacité du cable? ex(1792)  "))
-                    pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez localiser dans le cable de "+cable+" paires"))
-                    break
+                    if not cable in liste_cable:
+                        print(Fore.RED+"cable standardisé non reconnue ")
+                        for i in liste_cable:
+                            print(Back.YELLOW+f" CABLE STANDARDISE: {i}p ",end="\r")
+                            sleep(0.8)
+                    else:
+                        pair_to_lct=1e11
+                        while pair_to_lct > cable:
+                            pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez localiser dans le cable de "+str(cable)+" paires "))
+                            print(Fore.LIGHTRED_EX" NB: la paire à localiser ne doit pas etre superieur au cable!")
+                            if pair_to_lct <= cable:
+                                break
+                        break
                 except ValueError:
                     print(Fore.RED+" entrez une valeur numerique")
                     sleep(2)
@@ -151,7 +181,8 @@ def main():
 
 
             info_cable= {'contenance':cable,
-                        'petrole':contenance_oil}
+                        'rempli':contenance_oil}
+            print(info_cable)
             reperage_paire(info_cable,pair_to_lct)
             break
             
