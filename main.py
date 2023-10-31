@@ -42,7 +42,8 @@ def main():
         2:[  "Ba","J","N","ve","be", "M","R","Ba","J","N","Ve","Be","M","R"]}
     paire2={1:["I","I","I","I","I","I","I","Vi","Vi","Vi","Vi","Vi","Vi","Vi"],
         2:[  "Be","M","R","Ba","J","N","Ve","Be","M","R","Ba","J","N","Ve"]}
-    amorces={1:{ 'quartes':quarte[0:4],
+    
+    AMORCES={1:{ 'quartes':quarte[0:4],
                 'paires':[paire1[1][0:4],  # la premiere couleur de la paire 1
                paire1[2][0:4],  # la 2e couleur de la paire 1 ainsi de suite ...
                paire2[1][0:3],
@@ -72,11 +73,10 @@ def main():
 
 
                        ]  }}
-    
-   # for key,value in amorces.items():
-    #    print(f" amorce{key} :{value}")
-
-    util.clear()
+    for key,value in AMORCES.items():
+       print(f" amorce{key} :{value}")
+    tableau =[ paire1,paire2,amorces,quarte ]
+    # util.clear()
     ok=" 【✔】"
     description = " le programme ultime pour les etudiants en RIT"
     logo="""
@@ -121,7 +121,7 @@ def main():
     while True:
    
 #        choix = input(' VOTRE CHOIX'+ Fore.CYAN+ ' ')
-        choix='1'
+        # choix='1'
         if choix == '1':
             util.clear()
             print(logo)
@@ -168,7 +168,7 @@ def main():
                         pair_to_lct=1e11
                         while pair_to_lct > cable:
                             pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez localiser dans le cable de "+str(cable)+" paires "))
-                            print(Fore.LIGHTRED_EX" NB: la paire à localiser ne doit pas etre superieur au cable!")
+                            print(Fore.LIGHTRED_EX+" NB: la paire à localiser ne doit pas etre superieur au cable!")
                             if pair_to_lct <= cable:
                                 break
                         break
@@ -180,9 +180,10 @@ def main():
 
 
 
-            info_cable= {'contenance':cable,
-                        'rempli':contenance_oil}
-            print(info_cable)
+            info_cable= [cable,
+                        contenance_oil]
+
+            #print(info_cable)
             reperage_paire(info_cable,pair_to_lct)
             break
             
