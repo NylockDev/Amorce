@@ -1,3 +1,6 @@
 command_not_found_handle
 *.s*
 __pycache__
+
+_test.py
+essaie.py
