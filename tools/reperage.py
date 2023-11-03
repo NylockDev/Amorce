@@ -104,6 +104,9 @@ QUARTE[13]= P[26:27+1]
 def reperage_paire(info_cable:list,pair_to_lcr:int):
 
 
+    if pair_to_lcr > info_cable[0]:
+        print(Fore.LIGHTRED_EX+" ERREUR: valeur superieur au cable lui meme")
+        quit()
 
 
 
@@ -156,9 +159,6 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
         numero_amorce = 1
         compteur_iter =[] 
         for i in range(pair_to_lcr):
-            
-            # if len(compteur_iter) == pair_to_lcr:
-                # break
             compteur_tete.append(i)
             compteur_index_pair.append(i)
             compteur_toron.append(i)
@@ -167,39 +167,27 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
 
             compteur_2x_tete.append(i)
 
-            if cable == 1792:
-                if pair_to_lcr == cable:
-                     # index_2x_tete= -1
-                     # index_toron =- 1
-                     # index_tete = -1
-                    pass 
-                if len(compteur_2x_tete)== 223 +1:
-                    index_toron =0
-                    index_tete =0
-                    compteur_2x_tete = []
-                    index_2x_tete += 1
-                    numero_2x_tete +=1
                 
 
             if cable == 56:
-                if len(compteur_toron) == 13 +1:
+                if len(compteur_toron) == 14 +1:
                     compteur_toron =[]
                     index_toron += 1
 
-            if len(compteur_toron) == 27 +1:
+            if len(compteur_toron) == 28 +1:
                 compteur_toron =[]
                 numero_toron +=1
                 index_toron += 1
             
             if cable  == 896 or 448:
 
-                if len(compteur_tete) == 111 +1:
+                if len(compteur_tete) == 112 +1:
                     index_toron = 0
                 
             # print(index_toron)
                 
             
-            if len(compteur_tete) == 111 +1:
+            if len(compteur_tete) == 112 +1:
                 compteur_tete = []
                 index_tete +=1
                 numero_tete += 1
@@ -207,19 +195,23 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
 
             if len(compteur_index_pair) == 27 +1:
                 compteur_index_pair = []
+
             
             # print(compteur_amorce)
             if len(compteur_amorce) == 6 +1:
                 compteur_amorce = []
                 numero_amorce += 1
-
+            # print("i=",i)
             pair = P[len(compteur_index_pair)-1]
-  
-        # print(index_toron)
-        toron = TORON[index_toron]
-        tete = TETE[index_tete]
+
+        if not cable == 1792:
+
+            toron = TORON[index_toron]
+        
+         
+            tete = TETE[index_tete]
         iq,ia,quarte,amorce=recherche(pair,rempli)
-    
+        
         resultat =""
         if not pair in P[0:14]:
             TYPE = "B"
@@ -236,8 +228,8 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
             numero_amorce -= 1
                 #amorce =AMORCE[numero_amorce-2]
     
-            print(" numero amorce: ",numero_amorce)
-            print("nombre amorce: ",nbre_amorce)
+            # print(" numero amorce: ",numero_amorce)
+            # print("nombre amorce: ",nbre_amorce)
         # print("amorce:",amorce,"Quarte:",quarte)
             
         cable_make_112 = (448,896) 
@@ -251,19 +243,58 @@ la paire {pair_to_lcr} a pour couleur {pair} type {TYPE} est situé dans la Too 
 
 
 
-
-
-
                     """)
     
     
         if cable == 1792:
+            index_2x_tete=0
+            numero_tete=1
+            index_toron = 0
+            compteur_2x_tete=[]
+            compteur_tete =[]
+            compteur_toron=[]
+            numero_toron =1
+            numero_2x_tete =1
+            for i in range(pair_to_lcr): 
+                compteur_tete.append(i)
+                compteur_toron.append(i)
+                compteur_2x_tete.append(i)
+                index_tete =0
+                
 
+                
+                if len(compteur_2x_tete)== 224 +1:
+                    index_tete = 0
+                    numero_toron =1
+                    index_toron = 0
+                    compteur_2x_tete = []
+                    numero_2x_tete += 1
+                    index_2x_tete +=1
+                    numero_tete =1
 
+                if len(compteur_toron) == 29:
+                    compteur_toron = []
+                    numero_toron += 1
+                    index_toron +=1
+                
+                if len(compteur_tete) == 224 +1:
+                    index_tete =0
+                    numero_tete = 1
+                
+                if len (compteur_tete) == 113:
+                    index_tete += 1
+                    index_toron =0
+                    numero_tete += 1
+            
+
+            real_toron= [1,2,3,4]
+            while not numero_toron in real_toron:
+                numero_toron -= 4
+            tete = TETE[index_tete]
             resultat = (f"""
 
 
-la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, la Tête{numero_tete} {tete}, Toron{numero_toron} filin {toron}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
+la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, la Tête{numero_tete} {tete} , Toron{numero_toron} filin {TORON[index_toron]}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
 
                     """)
 
@@ -274,9 +305,7 @@ la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {n
             resultat = (f"""
 
 
-la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé dans le  Gros filin {toron} qui est le toron ou faisceau de base {numero_toron}, paire {amorce.index((pair))+1} de l'Amorce {numero_amorce} ( amorce {ia+1}),  Quarte {iq+1} dont les couleur sont  {quarte}") 
-
-                    """)
+la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé dans le  Gros filin {toron} qui est le toron ou faisceau de base {TORON.index(toron)+1}, paire {amorce.index((pair))+1} de l'Amorce {numero_amorce} ( amorce {ia+1}),  Quarte {iq+1} dont les couleur sont  {quarte}""")
     
         if cable == 56:
         
@@ -285,17 +314,21 @@ la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé dans le  Gr
 la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TORON[index_toron]} type {TYPE} amorce {numero_amorce} ,quarte {iq+1} de couleurs {quarte}
         """
     
-
+    print()
     print(Fore.RED+" cable: "+str(cable)+ " paires")
     if rempli: print(Fore.RED+"rempli: oui")
     else: print(Fore.RED+"rempli: non")
-    print(Style.BRIGHT+Fore.YELLOW+ resultat)
+    print(Style.BRIGHT+Fore.GREEN+ resultat)
     
 
 
 
 if __name__ == "__main__":
-    main()
+    
+    info=[896,False]
+    pair_tolc= 893
+
+    reperage_paire(info,pair_tolc)
 
 
 
@@ -412,4 +445,5 @@ dicte=[ 28,True ]
 
 pair = 23
 reperage_paire(dicte,pair)
+
 """
