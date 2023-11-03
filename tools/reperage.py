@@ -145,9 +145,6 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
     if cable >28:
         
 
-        numero_2x_tete = 1
-        compteur_2x_tete =[]
-        index_2x_tete = 0
         compteur_toron = []
         compteur_index_pair = []
         index_toron = 0
@@ -165,7 +162,6 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
             compteur_amorce.append(i)
             compteur_iter.append(i)
 
-            compteur_2x_tete.append(i)
 
                 
 
@@ -247,54 +243,48 @@ la paire {pair_to_lcr} a pour couleur {pair} type {TYPE} est situé dans la Too 
     
     
         if cable == 1792:
+            # index_tete = 0
             index_2x_tete=0
             numero_tete=1
             index_toron = 0
             compteur_2x_tete=[]
-            compteur_tete =[]
+            # compteur_tete =[]
             compteur_toron=[]
             numero_toron =1
             numero_2x_tete =1
+            compteur_iter = []
+            compteur_1_toron = []
             for i in range(pair_to_lcr): 
-                compteur_tete.append(i)
+                # compteur_tete.append(i)
                 compteur_toron.append(i)
                 compteur_2x_tete.append(i)
-                index_tete =0
+                compteur_iter.append(i)
                 
+                # print(numero_2x_tete)
 
-                
-                if len(compteur_2x_tete)== 224 +1:
-                    index_tete = 0
-                    numero_toron =1
-                    index_toron = 0
-                    compteur_2x_tete = []
-                    numero_2x_tete += 1
-                    index_2x_tete +=1
-                    numero_tete =1
-
-                if len(compteur_toron) == 29:
-                    compteur_toron = []
+                if len(compteur_toron) == 28+1:
+                    index_toron += 1
                     numero_toron += 1
-                    index_toron +=1
-                
-                if len(compteur_tete) == 224 +1:
-                    index_tete =0
-                    numero_tete = 1
-                
-                if len (compteur_tete) == 113:
-                    index_tete += 1
-                    index_toron =0
-                    numero_tete += 1
-            
+                    compteur_toron = [1]
 
-            real_toron= [1,2,3,4]
-            while not numero_toron in real_toron:
-                numero_toron -= 4
-            tete = TETE[index_tete]
+                if len(compteur_2x_tete) == 224 +1:
+                    index_2x_tete +=1
+                    numero_2x_tete += 1
+                    compteur_2x_tete = [1]
+
+                if numero_toron ==9:
+                    numero_toron = 1
+                    index_toron =0
+            # print(index_tete)
+            # real_toron= [1,2,3,4]
+            # while not numero_toron in real_toron:
+                # numero_toron -= 4
+            
+            #tete = TETE[index_tete]
             resultat = (f"""
 
 
-la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, la Tête{numero_tete} {tete} , Toron{numero_toron} filin {TORON[index_toron]}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
+la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, Toron{numero_toron} filin {TORON[index_toron]}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
 
                     """)
 
@@ -325,125 +315,10 @@ la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TOR
 
 if __name__ == "__main__":
     
-    info=[896,False]
-    pair_tolc= 893
+    info=[1792,False]
+    pair_tolc= 448
 
     reperage_paire(info,pair_tolc)
 
 
 
-
-
-"""
-def general():
-
-# structure dun cable 28p non rempli
-    quarte=[  1,   2,  3,  4,  5,    6,   7,  8,  9, 10, 11, 12,  13, 14]
-    paire1={
-    1: [     "G"," G","G","G", "G",  "G","G","o","o","o","o",  "o","o", "o"],
-        2:[  "Ba","J","N","ve","be", "M","R","Ba","J","N","Ve","Be","M","R"]}
-    paire2={1:["I","I","I","I","I","I","I","Vi","Vi","Vi","Vi","Vi","Vi","Vi"],
-        2:[  "Be","M","R","Ba","J","N","Ve","Be","M","R","Ba","J","N","Ve"]}
-    
-    AMORCES={1:{ 'quartes':quarte[0:4],
-                'paires':[paire1[1][0:4],  # la premiere couleur de la paire 1
-               paire1[2][0:4],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire2[1][0:3],
-               paire2[2][0:3]
-                        ]},
-            
-            2:{ 'quartes':quarte[3:7],
-               'paires':[paire2[1][3:7],  # la premiere premier paire est la paire 2 
-               paire2[2][3:7],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire1[1][4:7],
-               paire1[2][4:7]
-                       ]},
-            
-            3:{ 'quartes':quarte[7:11],
-               'paires':[paire1[1][7:11],  # la premiere couleur de la paire 1
-               paire1[2][7:11],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire2[1][7:10],
-               paire2[2][7:10]
-                            ]},
-            
-            4:{ 'quartes':quarte[10:15],
-               'paires':[paire2[1][10:14],  # la premiere couleur de la paire 1
-               paire2[2][10:14],  # la 2e couleur de la paire 1 ainsi de suite ...
-               paire1[1][11:14],
-               paire1[2][11:14]
-
-
-
-                       ]  }}
-    return AMORCES  
-
-
-    
-    
-    liste_cable = info.liste_cable
-    amorces = general()
-       
-    # paire se recherche
-    wanted_pair= 1 
-    
-    # debut des calculs
-    interval_de_recherche= pair_to_lct
-
-   
-    quarte=0
-    amorce=1
-    toron= 1
-    #pair=[]
-    compteur_iter=[]
-    
-    compteur_amorce=[]
-    compteur_toron= []
-    compteur_tete=[]
-    compteur_quarte=[]
-    
-    for i in range(interval_de_recherche):
-        compteur_iter.append(i)
-
-        compteur_amorce.append(i)
-        compteur_toron
-        compteur_tete
-        if len(compteur_quarte) == 13:
-            nbre_amorce= 1
-            amorce += 1
-            compteur_quarte=[]
-        if i ==14:
-            amorce=2
-            
-        elif i ==4:
-            #index_quarte += 1
-            pass
-        if amorce == 4:
-            toron+= 1
-
-        if len(compteur_iter) == pair_to_lct:
-            break
-
-        
-
-
-
-
-
-    amorce_exact=[1,2,3,4] 
-
-    while not amorce in amorce_exact:
-		
-	    amorce -= 4
-    
-    print("amorce:",amorce,"Quarte:",quarte)
-
-
-
-
-
-dicte=[ 28,True ]
-
-pair = 23
-reperage_paire(dicte,pair)
-
-"""
