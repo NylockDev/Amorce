@@ -74,8 +74,8 @@ def main():
     print()
     print(Style.BRIGHT+Fore.LIGHTGREEN_EX+'    [1]'+Fore.CYAN+" Determiner une paire dans un câble (ex: 232e p  dans un cable de 448p)")
     print(Style.BRIGHT+Fore.LIGHTBLUE_EX+"    [2]"+Fore.YELLOW+" afficher la liste des composition de câble")
-    print(Fore.YELLOW+"    [3]"+Fore.CYAN+" avoir la ...")
-    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" localiser ...")
+    print(Fore.YELLOW+"    [3]"+Fore.CYAN+" Determiner l'appartenance d'une quarte  à un faicseau")
+    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs de quartes d'un cable ")
     print(Style.BRIGHT+" Tapez 'q' pour quiter")
     
     while True:
