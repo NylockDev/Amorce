@@ -122,8 +122,9 @@ def main():
                     if not cable in liste_cable:
                         print(Fore.RED+"cable standardisé non reconnue ")
                         for i in liste_cable:
-                            print(Back.YELLOW+f" CABLE STANDARDISE: {i}p ",end="\r")
-                            sleep(0.8)
+                            print(Back.YELLOW+f" CABLE STANDARDISE: {i}p ")
+                    elif cable < 28:
+                        print(" les cables inferieurs à 28 paires ne sont pas pris en charge")
                     else:
                         pair_to_lct=1e11
                         while pair_to_lct > cable:
@@ -152,9 +153,9 @@ def main():
                 print(i,end='')
                 sleep(0.1)
         elif choix == '3':
-            pass
-        elif choix == '3':
-            pass
+            print("Fonction non dispo pour le moment")
+        elif choix == '4':
+            print(Style.BRIGHT+" Fonctionnalité Indisponible")
         elif choix =='q':
             
             os.system(" figlet merci | lolcat")

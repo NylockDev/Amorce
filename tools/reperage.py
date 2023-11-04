@@ -243,49 +243,41 @@ la paire {pair_to_lcr} a pour couleur {pair} type {TYPE} est situé dans la Too 
     
     
         if cable == 1792:
-            index_tete = 0
             index_2x_tete=0
-            numero_tete=1
             index_toron = 0
             compteur_2x_tete=[]
-            compteur_tete =[]
             compteur_toron=[]
             numero_toron =1
             numero_2x_tete =1
+            compteur_1_toron = []
             for i in range(pair_to_lcr): 
-                compteur_tete.append(i)
                 compteur_toron.append(i)
                 compteur_2x_tete.append(i)
-                
+                # print(numero_2x_tete)
 
-                
-                if len(compteur_2x_tete)== 224 +1:
-                    numero_toron =1
-                    index_toron = 0
-                    compteur_2x_tete = []
-                    numero_2x_tete += 1
-                    index_2x_tete +=1
-
-                if len(compteur_toron) == 29:
-                    compteur_toron = []
+                if len(compteur_toron) == 28+1:
+                    index_toron += 1
                     numero_toron += 1
-                    index_toron +=1
-                
-                
-                if len (compteur_tete) == 113:
-                    index_tete += 1
+                    compteur_toron = [1]
+
+                if len(compteur_2x_tete) == 224 +1:
+                    index_2x_tete +=1
+                    numero_2x_tete += 1
+                    compteur_2x_tete = [1]
+
+                if numero_toron ==9:
+                    numero_toron = 1
                     index_toron =0
-                    numero_tete += 1
-            
             # print(index_tete)
-            real_toron= [1,2,3,4]
-            while not numero_toron in real_toron:
-                numero_toron -= 4
-            tete = TETE[index_tete]
+            # real_toron= [1,2,3,4]
+            # while not numero_toron in real_toron:
+                # numero_toron -= 4
+            
+            #tete = TETE[index_tete]
             resultat = (f"""
 
 
-la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, la Tête{numero_tete} {tete} , Toron{numero_toron} filin {TORON[index_toron]}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
+la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {numero_2x_tete}e(r) 224 filin {TETE_2x[index_2x_tete]}, Toron{numero_toron} filin {TORON[index_toron]}   la {amorce.index(pair)+1}e pair  de l'amorce{ia+1}, la quarte{iq+1} dont les couleur sont  {quarte}") 
 
                     """)
 
