@@ -5,9 +5,6 @@ except ModuleNotFoundError:
     print("\033[31m"+" ERREUR: le module colorama n'est pas installé faite pip install -r requirement.txt ou pip install colorama"+"\033[0m")
     exit()
 import os,sys
-if os.name== 'nt':
-    sys.stderr.write("\033[31m"+" ERREUR: cette version  n'est pas compatible avec les systèmes windows"+"\033[0m")
-    sys.exit(0)
 from time import sleep
 sys.path.append("app")
 sys.path.append("tools")
@@ -50,9 +47,20 @@ def main():
 
 
     """
+    ico = """
+╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱   ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+┃╭━╮┃╱╱╱╱╱╱╱╱╭╮╱╱╱╱╭╯╰╮   ┃╭━╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+┃╰━╯┃╭━╮╭━━╮╱╰╯╭━━╮╰╮╭╯   ┃┃╱┃┃╭╮╭╮╭━━╮╭━╮╭━━╮╭━━╮
+┃╭━━╯┃╭╯┃╭╮┃╱╭╮┃┃━┫╱┃┃╱   ┃╰━╯┃┃╰╯┃┃╭╮┃┃╭╯┃╭━╯┃┃━┫
+┃┃╱╱╱┃┃╱┃╰╯┃╱┃┃┃┃━┫╱┃╰╮   ┃╭━╮┃┃┃┃┃┃╰╯┃┃┃╱┃╰━╮┃┃━┫
+╰╯╱╱╱╰╯╱╰━━╯╱┃┃╰━━╯╱╰━╯   ╰╯╱╰╯╰┻┻╯╰━━╯╰╯╱╰━━╯╰━━╯
+╱╱╱╱╱╱╱╱╱╱╱╱╭╯┃╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+╱╱╱╱╱╱╱╱╱╱╱╱╰━╯╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱    
+    """
 
     #LOGO= os.system(" cat opp.txt | lolcat")
     #print(type(LOGO))
+    # os.name='nt'
     if os.name=='posix':
         os.system(" figlet projet AMORCE | lolcat")
         print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
@@ -61,10 +69,9 @@ def main():
         os.system(" cat opp | lolcat")
     else:
 
-        motif="./opp.txt"
-        with open(motif,'r')as motif:
-            for i in motif.read():
-                print(Fore.CYAN+i,end='')
+        print(Fore.CYAN+"       "+ico)
+        print(Fore.BLUE+"                                     V1.0.0-forWin")
+        print(Fore.RED+" ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬ ◆For Windows ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬+ ")
         print()       
 
     print()
@@ -158,7 +165,7 @@ def main():
             print(Style.BRIGHT+" Fonctionnalité Indisponible")
         elif choix =='q':
             
-            os.system(" figlet merci | lolcat")
+            print(Fore.CYAN+" MERCI!!")
             quit()
 
         
