@@ -27,3 +27,8 @@ Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,
 - cd projet_amorce
 - python main.py
 - Enjoy🥳🥳
+## SCREENSHOT
+
+![Screenshot_2023-11-04-21-02-29_Edited](screenshot%20/Screenshot_2023-11-04-21-02-29_Edited.jpg)
+
+![Screenshot_2023-11-04-21-03-03_Edited](screenshot%20/Screenshot_2023-11-04-21-03-03_Edited.jpg)

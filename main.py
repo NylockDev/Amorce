@@ -50,14 +50,15 @@ def main():
 
 
     """
-
+    indispo=Fore.RED+" [INDISPONIBLE]"
+    # os.name='nt'
     #LOGO= os.system(" cat opp.txt | lolcat")
     #print(type(LOGO))
     if os.name=='posix':
         os.system(" figlet projet AMORCE | lolcat")
         print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
         print(Fore.CYAN+"●❯────────────────❮●●❯─────●❯────────────────❮●●❯──────────────────❮●)")
-        print(Back.RED+"version pour Linux🐧"); print()
+        print(Back.RED+"version pour Linux🐧\nV1.0.1"); print()
         os.system(" cat opp | lolcat")
     else:
 
@@ -73,9 +74,13 @@ def main():
     print(" que veux tu faire avec le programme, choisir un numero")
     print()
     print(Style.BRIGHT+Fore.LIGHTGREEN_EX+'    [1]'+Fore.CYAN+" Determiner une paire dans un câble (ex: 232e p  dans un cable de 448p)")
+    print()
     print(Style.BRIGHT+Fore.LIGHTBLUE_EX+"    [2]"+Fore.YELLOW+" afficher la liste des composition de câble")
-    print(Fore.YELLOW+"    [3]"+Fore.CYAN+" Determiner l'appartenance d'une quarte  à un faicseau")
-    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs de quartes d'un cable ")
+    print()
+    print(Fore.YELLOW+"    [3]"+Fore.CYAN+" Determiner l'appartenance d'une quarte  à un faicseau",indispo)
+    print()
+    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs de quartes d'un cable ",indispo)
+    print()
     print(Style.BRIGHT+" Tapez 'q' pour quiter")
     
     while True:
@@ -145,13 +150,30 @@ def main():
                         contenance_oil]
 
             #print(info_cable)
-            reperage_paire(info_cable,pair_to_lct)
+            resultat=reperage_paire(info_cable,pair_to_lct)
+            art = """
+┈┈┈╱▔▔▔╲
+▇▔▔┈▍▍┃┈┃╭━╮
+╲━━╯┈┈┃┈┃╰╮┃
+┈▔▔▔┃┈╰━╯╲┃┃
+┈┈┈┈┃┃┃┈┈▕┃┃
+┈┈┈┈┃┃┃╭┛▕╯┃
+┈┈┈┈┗┻┛┗━╯━╯
+
+            """
+
+            print()
+            print(Fore.BLUE+" cable: "+str(cable)+ " paires")
+            if contenance_oil: print(Fore.BLUE+"rempli: oui")
+            else: print(Fore.BLUE+"rempli: non")
+            print(Style.BRIGHT+Fore.GREEN+art+ resultat)
+            
             break
             
         elif choix == '2':
             for i in LISTE:
-                print(i,end='')
-                sleep(0.1)
+                print(Fore.CYAN+i,end='')
+                sleep(0.01)
         elif choix == '3':
             print("Fonction non dispo pour le moment")
         elif choix == '4':
@@ -159,6 +181,12 @@ def main():
         elif choix =='q':
             
             os.system(" figlet merci | lolcat")
+            print(r"""
+  ✋
+   \ 😜                         Auteur:    { Kouadio Toussaint }
+      ((>
+     / \
+                  """,end='')
             quit()
 
         

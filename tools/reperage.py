@@ -320,12 +320,7 @@ la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé dans le  Gr
 la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TORON[index_toron]} type {TYPE} amorce {numero_amorce} ,quarte {iq+1} de couleurs {quarte}
         """
     
-    print()
-    print(Fore.RED+" cable: "+str(cable)+ " paires")
-    if rempli: print(Fore.RED+"rempli: oui")
-    else: print(Fore.RED+"rempli: non")
-    print(Style.BRIGHT+Fore.GREEN+ resultat)
-    
+    return resultat 
 
 
 
@@ -335,6 +330,13 @@ if __name__ == "__main__":
     info=[224,False]
     pair_tolc= 114
 
-    reperage_paire(info,pair_tolc)
+    resultat=reperage_paire(info,pair_tolc)
+
+
+    print()
+    print(Fore.RED+" cable: "+str(cable)+ " paires")
+    if rempli: print(Fore.RED+"rempli: oui")
+    else: print(Fore.RED+"rempli: non")
+    print(Style.BRIGHT+Fore.GREEN+ resultat)
 
 
