@@ -155,14 +155,15 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
         compteur_amorce = []
         numero_amorce = 1
         compteur_iter =[] 
-        for i in range(pair_to_lcr):
+        for i in range(cable):
             compteur_tete.append(i)
             compteur_index_pair.append(i)
             compteur_toron.append(i)
             compteur_amorce.append(i)
             compteur_iter.append(i)
 
-
+            if i == pair_to_lcr -1:
+                break
                 
 
             if cable == 56:
@@ -184,8 +185,8 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
                     compteur_toron = []
                     numero_toron = 1
             # print(index_toron)
-                
-            
+            # print("numeri toron",numero_toron) 
+            # print(" xompteur toron",compteur_toron) 
             if len(compteur_tete) == 112 +1:
                 compteur_tete = []
                 index_tete +=1
@@ -196,18 +197,19 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
                 compteur_index_pair = []
 
             
-            # if cable == 224 or 112:
-                # if len(compteur_toron) == 27 +1:
-                    # pass
-                # # if numero_toron ==9:
-                #     numero_toron = 1
-                #     index_toron =0
+            # if cable == 224:
+            #     if len(compteur_toron) == 27 +1:
+            #         index_toron +=1
+            #         numero_toron +=1
+            #         compteur_toron = []
+
+
             # print(compteur_amorce)f 
             if len(compteur_amorce) == 6 +1:
                 compteur_amorce = []
                 numero_amorce += 1
             # print("i=",i)
-            pair = P[len(compteur_index_pair)-1]
+            pair = P[len(compteur_index_pair)]
 
         if not cable == 1792:
 
@@ -293,7 +295,19 @@ la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé  dans le {n
 
 
         if cable == 112 or cable == 224:
-
+            compteur_toron=[]
+            index_toron=0
+            numero_toron = 1
+            for i in range(cable):
+                if i == pair_to_lcr -1:
+                    break
+                compteur_toron.append(i)
+                if len(compteur_toron) == 28:
+                    numero_toron += 1
+                    index_toron +=1
+                    compteur_toron = []
+            
+            toron=TORON[index_toron]
             resultat = (f"""
 
 
@@ -306,21 +320,23 @@ la paire {pair_to_lcr} a pour couleur {pair}, type {TYPE} est situé dans le  Gr
 la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TORON[index_toron]} type {TYPE} amorce {numero_amorce} ,quarte {iq+1} de couleurs {quarte}
         """
     
-    print()
-    print(Fore.RED+" cable: "+str(cable)+ " paires")
-    if rempli: print(Fore.RED+"rempli: oui")
-    else: print(Fore.RED+"rempli: non")
-    print(Style.BRIGHT+Fore.GREEN+ resultat)
-    
+    return resultat 
 
 
 
 if __name__ == "__main__":
     
-    info=[896,False]
-    pair_tolc= 896
 
-    reperage_paire(info,pair_tolc)
+    info=[224,False]
+    pair_tolc= 114
 
+    resultat=reperage_paire(info,pair_tolc)
+
+
+    print()
+    print(Fore.RED+" cable: "+str(cable)+ " paires")
+    if rempli: print(Fore.RED+"rempli: oui")
+    else: print(Fore.RED+"rempli: non")
+    print(Style.BRIGHT+Fore.GREEN+ resultat)
 
 
