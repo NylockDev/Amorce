@@ -1,9 +1,6 @@
 # PROJET AMORCE
 
- █▀▀█ █▀▀█ █▀▀█ ░░▀ █▀▀ ▀▀█▀▀   █▀▀█ █▀▄▀█ █▀▀█ █▀▀█ █▀▀ █▀▀  
- █▄▄█ █▄▄▀ █░░█ ░░█ █▀▀ ░░█░░   █▄▄█ █░▀░█ █░░█ █▄▄▀ █░░ █▀▀  
- █░░░ ▀░▀▀ ▀▀▀▀ █▄█ ▀▀▀ ░░▀░░   █░▒█ ▀░░░▀ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀▀▀  
-
+ ![20231106_135603](screenshot%20/20231106_135603.jpg)
 
 **le programme ultime pour les etudiants en RESEAU INFORMATIQUE ET TELECOMMUNICATION pour le cours de Reseau d'Acces (RA)**
 
@@ -12,7 +9,6 @@
 Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,56,112,224,448,896,1792)  les cable inferieurs a 28 paires ne sont pas pris en charge dans cette version 
 
 ## INSTALLATION
-
 
 - `apt-get install python`
 - `apt-get install git`

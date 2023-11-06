@@ -86,7 +86,7 @@ def main():
     print()
     print(Fore.YELLOW+"    [3]"+Fore.CYAN+" Determiner l'appartenance d'une quarte  à un faicseau",indispo)
     print()
-    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs de quartes d'un cable ",indispo)
+    print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs d'une paire a partir des informations fourni ",indispo)
     print()
     print(Style.BRIGHT+" Tapez 'q' pour quiter")
     
@@ -160,7 +160,7 @@ def main():
             resultat=reperage_paire(info_cable,pair_to_lct)
             art = """
 ┈┈┈╱▔▔▔╲
-▇▔▔┈▍▍┃┈┃╭━╮
+▇▔▔┈▍▍┃┈┃╭━╮eab5ec4d9d85201b261c1d8e2cd0dd532ac4f1c9
 ╲━━╯┈┈┃┈┃╰╮┃
 ┈▔▔▔┃┈╰━╯╲┃┃
 ┈┈┈┈┃┃┃┈┈▕┃┃
