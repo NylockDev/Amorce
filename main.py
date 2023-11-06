@@ -153,7 +153,7 @@ def main():
             resultat=reperage_paire(info_cable,pair_to_lct)
             art = """
 ┈┈┈╱▔▔▔╲
-▇▔▔┈▍▍┃┈┃╭━╮
+▇▔▔┈▍▍┃┈┃╭━╮eab5ec4d9d85201b261c1d8e2cd0dd532ac4f1c9
 ╲━━╯┈┈┃┈┃╰╮┃
 ┈▔▔▔┃┈╰━╯╲┃┃
 ┈┈┈┈┃┃┃┈┈▕┃┃
