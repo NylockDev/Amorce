@@ -178,7 +178,7 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
             
             if cable  == 896 or 448:
                 
-                if len(compteur_tete) == 112 +1:
+                if len(compteur_tete) == 111 +1:
 
 
                     index_toron = 0
@@ -187,7 +187,7 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
             # print(index_toron)
             # print("numeri toron",numero_toron) 
             # print(" xompteur toron",compteur_toron) 
-            if len(compteur_tete) == 112 +1:
+            if len(compteur_tete) == 111 +1:
                 compteur_tete = []
                 index_tete +=1
                 numero_tete += 1
@@ -242,6 +242,26 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
         cable_make_112 = (448,896) 
 
         if  cable in cable_make_112:
+
+            compteur_amorce=[]
+            numero_amorce =1
+            compteur_tete=[]
+            for i in range(cable):
+                compteur_amorce.append(i)
+                compteur_tete.append(i)
+                if i == pair_to_lcr -1:
+                    break
+                
+                
+                if len(compteur_tete) == 111+1:
+                    compteur_tete=[]
+                    numero_amorce=1
+                    compteur_amorce=[]
+                    
+
+                if len(compteur_amorce) == 6+1:
+                    compteur_amorce=[]
+                    numero_amorce+=1
 
             resultat = (f"""
 
@@ -327,8 +347,8 @@ la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TOR
 if __name__ == "__main__":
     
 
-    info=[224,False]
-    pair_tolc= 114
+    info=[896,False]
+    pair_tolc= 500
 
     resultat=reperage_paire(info,pair_tolc)
 
