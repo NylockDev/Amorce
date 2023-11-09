@@ -157,10 +157,10 @@ def main():
                         contenance_oil]
 
             #print(info_cable)
-            resultat=reperage_paire(info_cable,pair_to_lct)
+            resultat,tag=reperage_paire(info_cable,pair_to_lct)
             art = """
 ┈┈┈╱▔▔▔╲
-▇▔▔┈▍▍┃┈┃╭━   RESULTAT 
+▇▔▔┈▍▍┃┈┃╭━ ▀▄▀▄▀▄  RESULTAT ▀▄▀▄▀▄
 ╲━━╯┈┈┃┈┃╰╮┃
 ┈▔▔▔┃┈╰━╯╲┃┃
 ┈┈┈┈┃┃┃┈┈▕┃┃
@@ -176,6 +176,14 @@ def main():
             else: print(Fore.BLUE+"rempli: non")
             print(Style.BRIGHT+Fore.GREEN+art+ resultat)
             
+            util.barre_chargement()
+            for i in tag:
+                print(Fore.YELLOW+Style.BRIGHT+i,end="")
+                sleep(0.01)
+
+                print("Tapez entrez pour continuer")
+                input()
+                main()
             break
             
         elif choix == '2':
@@ -202,28 +210,6 @@ def main():
             print(Fore.RED+ " ERREUR: CHOIX INVALIDE")
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
