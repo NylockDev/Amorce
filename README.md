@@ -12,13 +12,13 @@ Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,
 
 - `apt-get install python`
 - `apt-get install git`
-- `git clone https://github.com/NylockDev/projet_amorce.git`
+- `git clone https://github.com/NylockDev/Amorce.git`
 
 
 
 ## USAGE
 
-- cd projet_amorce
+- cd _Amorce
 - python main.py
 - Enjoy🥳🥳
 ## SCREENSHOT
