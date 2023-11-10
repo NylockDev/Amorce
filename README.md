@@ -10,7 +10,11 @@ Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,
 
 ## INSTALLATION
 
-- `apt-get install python`
+**Android**
+- installer Termux un émulateur d'environnement Linux pour exécuter des commandes Linux sous Android sur le site [Fdroid](https://f-droid.org/fr/packages/com.termux)
+- après l'installation exécuter la ligne de commande `apt-get update && apt-get upgrade`
+Pour mettre les paquets termux a jour si possible ensuite exécuter les commandes ci dessous 👇👇👇👇
+-  `apt-get install python`
 - `apt-get install git`
 - `git clone https://github.com/NylockDev/Amorce.git`
 
@@ -18,7 +22,8 @@ Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,
 
 ## USAGE
 
-- cd _Amorce
+
+- cd Amorce
 - python main.py
 - Enjoy🥳🥳
 ## SCREENSHOT
@@ -26,3 +31,7 @@ Cette version permet de reperer une paire dans un cable ceux standardisé  (28p,
 ![Screenshot_2023-11-04-21-02-29_Edited](screenshot%20/Screenshot_2023-11-04-21-02-29_Edited.jpg)
 
 ![Screenshot_2023-11-04-21-03-03_Edited](screenshot%20/Screenshot_2023-11-04-21-03-03_Edited.jpg)
+📧 adoutoussaint5@gmail.com
+
+
+
