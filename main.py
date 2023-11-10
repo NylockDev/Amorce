@@ -66,12 +66,12 @@ def main():
         os.system(" figlet projet AMORCE | lolcat")
         print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
         print(Fore.CYAN+"●❯────────────────❮●●❯─────●❯────────────────❮●●❯──────────────────❮●)")
-        print(Back.RED+"version pour Linux🐧\nV1.0.1"); print()
+        print(Back.RED+"version pour nt et posix\nV1.0.2"); print()
         os.system(" cat opp | lolcat")
     else:
 
         print(Fore.CYAN+"       "+ico)
-        print(Fore.BLUE+"                                     V1.0.1-forWin")
+        print(Fore.BLUE+"                                     V1.0.2")
         print(Fore.RED+" ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬ ◆For Windows ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬+ ")
         print()       
 
@@ -124,7 +124,7 @@ def main():
                         contenance_oil = True
                         break
                     else:
-                        print(" la serie n'est pas reconnu")
+                        print(Fore.RED+" la serie n'est pas reconnu")
                 else:
                     print(Fore.RED+" Entreé Invalide")
 
@@ -134,19 +134,20 @@ def main():
                     if not cable in liste_cable:
                         print(Fore.RED+"cable standardisé non reconnue ")
                         for i in liste_cable:
-                            print(Back.YELLOW+f" CABLE STANDARDISE: {i}p ")
+                            print(Fore.YELLOW+f" cable de : {i}p ")
                     elif cable < 28:
                         print(" les cables inferieurs à 28 paires ne sont pas pris en charge")
                     else:
                         pair_to_lct=1e11
                         while pair_to_lct > cable:
-                            pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez localiser dans le cable de "+str(cable)+" paires "))
-                            print(Fore.LIGHTRED_EX+" NB: la paire à localiser ne doit pas etre superieur au cable!")
+                            pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez reperer dans le cable de "+str(cable)+" paires "))
+                            if pair_to_lct > cable:
+                                print(Fore.LIGHTRED_EX+"  la paire à localiser ne doit pas etre superieur au cable!")
                             if pair_to_lct <= cable:
                                 break
                         break
                 except ValueError:
-                    print(Fore.RED+" entrez une valeur numerique")
+                    print(Fore.RED+" entrez une valeur numerique svp")
                     sleep(2)
                     util.clear()
                     print(logo)
@@ -181,25 +182,31 @@ def main():
                 print(Fore.YELLOW+Style.BRIGHT+i,end="")
                 sleep(0.01)
 
-                print("Tapez entrez pour continuer")
-                input()
+            print("Tapez entrer pour continuer ou q pour quiter")
+            choix=input()
+            if choix=="":
                 main()
-            break
+            
+            else:  
+                print(ok)
+                break
             
         elif choix == '2':
             for i in LISTE:
                 print(Fore.CYAN+i,end='')
                 sleep(0.01)
         elif choix == '3':
-            print("Fonction non dispo pour le moment")
+            print(Fore.RED+"Fonctionnalité indisponible")
         elif choix == '4':
-            print(Style.BRIGHT+" Fonctionnalité Indisponible")
+            print(Fore.RED+" Fonctionnalité Indisponible")
         elif choix =='q':
             
             print(Fore.CYAN+" MERCI!!")
             print(r"""
   ✋
    \ 😜                         Auteur:    { Kouadio Toussaint }
+                                Ghithub :  { NylockDev  }
+                                mail:     {adoutoussaint5@gmail.com}
       ((>
      / \
                   """,end='')

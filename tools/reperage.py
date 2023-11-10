@@ -21,7 +21,10 @@ def recherche(pair:int,rempli:bool):
             index_quarte= q
             quarte = QUARTE[index_quarte]
             if rempli:
-                quarte[1][0] = "Vi"
+                for i,p in enumerate(quarte):
+
+                    if 'I' in p[0]:
+                        quarte[i][0] = "Vi"
             break
     
 
@@ -32,8 +35,8 @@ def recherche(pair:int,rempli:bool):
             amorce = AMORCE[index_amorce]
             if rempli:
                 for i,p in enumerate(amorce):
-                    if "I" in p[1]:
-                       amorce[i][1]="Vi"
+                    if "I" in p[0]:
+                       amorce[i][0]="Vi"
 
 
             break
@@ -111,13 +114,13 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
 
 
     # for i in P:
-        # print(i)
+    #     print(i)
 
 
 
 
     # for i in range( len( AMORCE)):
-        # print( "AMORCE"+str(i+1),AMORCE[i])
+    #    print( "AMORCE"+str(i+1),AMORCE[i])
 
     cable = info_cable[0]
     rempli = info_cable[1]
@@ -137,7 +140,14 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
             if pair[0] == "I":
                 pair[0]= "Vi"
 
-        print(f" la paire {pair_to_lcr} a pour couleur {pair} type {TYPE} est situé dans l'amorce{ia+1}:  la quarte{iq+1}: {QUARTE[iq]}") 
+        resultat= (f" la paire {pair_to_lcr} a pour couleur {pair} type {TYPE} est situé dans l'amorce{ia+1}:  la quarte{iq+1}: {QUARTE[iq]}")
+        tag=f"""
+
+A{ia+1}
+Type {TYPE}
+Q{iq+1}
+P{amorce.index(pair)+1} {pair}
+        """
 
       
     
@@ -391,8 +401,8 @@ P{amorce.index(pair)+1} ({pair[0]}-{pair[1]})
 if __name__ == "__main__":
     
 
-    info=[896,False]
-    pair_tolc= 500
+    info=[896,True]
+    pair_tolc= 2
 
     resultat,t1g=reperage_paire(info,pair_tolc)
 
