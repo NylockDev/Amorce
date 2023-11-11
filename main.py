@@ -61,7 +61,7 @@ def main():
     indispo=Fore.RED+" [INDISPONIBLE]"
     #LOGO= os.system(" cat opp.txt | lolcat")
     #print(type(LOGO))
-    # os.name='nt'
+# os.name='nt'
     if os.name=='posix':
         os.system(" figlet projet AMORCE | lolcat")
         print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
@@ -162,10 +162,10 @@ def main():
             art = """
 ┈┈┈╱▔▔▔╲
 ▇▔▔┈▍▍┃┈┃╭━ ▀▄▀▄▀▄  RESULTAT ▀▄▀▄▀▄
-╲━━╯┈┈┃┈┃╰╮┃
+╲━━╯┈┈┃┈┃╰╮┃        ๑۩۞۩๑ RÉSULTS [̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅]
 ┈▔▔▔┃┈╰━╯╲┃┃
 ┈┈┈┈┃┃┃┈┈▕┃┃
-┈┈┈┈┃┃┃╭┛▕╯┃
+┈┈┈┈┃┃┃╭┛▕╯┃        (⁠◠⁠‿⁠・⁠)⁠—⁠☆
 ┈┈┈┈┗┻┛┗━╯━╯
 
             """
@@ -174,13 +174,16 @@ def main():
             print()
             print(Fore.BLUE+" cable: "+str(cable)+ " paires")
             if contenance_oil: print(Fore.BLUE+"rempli: oui")
-            else: print(Fore.BLUE+"rempli: non")
-            print(Style.BRIGHT+Fore.GREEN+art+ resultat)
+            else: print(Fore.BLUE+" rempli: non")
+            for i in resultat:
+                print(Fore.GREEN+i,end='')
+                sleep(0.02)
+            # print(Style.BRIGHT+Fore.GREEN+art+ resultat)
             
             util.barre_chargement()
             for i in tag:
                 print(Fore.YELLOW+Style.BRIGHT+i,end="")
-                sleep(0.01)
+                sleep(0.02)
 
             print("Tapez entrer pour continuer ou q pour quiter")
             choix=input()
@@ -189,7 +192,8 @@ def main():
             
             else:  
                 print(ok)
-                break
+                quit()
+                
             
         elif choix == '2':
             for i in LISTE:

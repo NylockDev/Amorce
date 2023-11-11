@@ -145,7 +145,7 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
 
 A{ia+1}
 Type {TYPE}
-Q{iq+1}
+Q{iq+1} {quarte}
 P{amorce.index(pair)+1} {pair}
         """
 
