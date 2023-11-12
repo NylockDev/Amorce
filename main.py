@@ -159,15 +159,31 @@ def main():
 
             #print(info_cable)
             resultat,tag=reperage_paire(info_cable,pair_to_lct)
-            art = """
-┈┈┈╱▔▔▔╲
-▇▔▔┈▍▍┃┈┃╭━ ▀▄▀▄▀▄  RESULTAT ▀▄▀▄▀▄
-╲━━╯┈┈┃┈┃╰╮┃        ๑۩۞۩๑ RÉSULTS [̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅]
-┈▔▔▔┃┈╰━╯╲┃┃
-┈┈┈┈┃┃┃┈┈▕┃┃
-┈┈┈┈┃┃┃╭┛▕╯┃        (⁠◠⁠‿⁠・⁠)⁠—⁠☆
-┈┈┈┈┗┻┛┗━╯━╯
-
+            art = r"""
+┴┬┴┬／￣＼＿／￣＼
+┬┴┬┴▏　　▏▔▔▔▔＼
+┴┬┴／＼　／　　　　　　﹨
+┬┴∕　　　　　　　／　　　）
+┴┬▏　　　　　　　　●　　▏
+┬┴▏　　　　　　　　　　　▔█◤
+┴◢██◣　　　　　　 ＼＿＿／
+┬█████◣　　　　　　／　
+┴█████████████ ◣
+◢██████████████▆▄
+█◤◢██ ◣◥█████████ ◤＼
+◥◢ ████　████████◤　　 ＼
+┴█████　██████◤　　　　　 ﹨
+┬│　　　│█████ ◤　　　　　　　▏
+┴│　　　│　　　　　　　　　　　　▏
+┬∕　　　∕　　　　／▔▔▔＼　　   　 ∕
+*∕＿＿_／﹨　　　∕　　　　﹨   　　／
+┬┴┬┴┬┴＼ 　　 ＼_　　　　﹨　      ＼_
+┴┬┴┬┴┬┴ ＼＿＿＿＼　　　 ﹨＿＿＿＿＼
+            """
+            mark="""
+ █▄░▒█ █░░▒█ █░░░ █▀▀▀█ █▀▀█ █░▄▀   █▀▀▄ █▀▀▀ █░░▒█
+ █▒█▒█ █▄▄▄█ █░░░ █░░▒█ █░░░ █▀▄░   █░▒█ █▀▀▀ ▒█▒█░
+ █░░▀█ ░▒█░░ █▄▄█ █▄▄▄█ █▄▄█ █░▒█   █▄▄▀ █▄▄▄ ░▀▄▀░
             """
             util.clear()
 
@@ -175,17 +191,17 @@ def main():
             print(Fore.BLUE+" cable: "+str(cable)+ " paires")
             if contenance_oil: print(Fore.BLUE+"rempli: oui")
             else: print(Fore.BLUE+" rempli: non")
+            print(Fore.BLUE+Fore.RED+mark)
             for i in resultat:
                 print(Fore.GREEN+i,end='')
                 sleep(0.02)
-            # print(Style.BRIGHT+Fore.GREEN+art+ resultat)
             
             util.barre_chargement()
             for i in tag:
                 print(Fore.YELLOW+Style.BRIGHT+i,end="")
                 sleep(0.02)
-
-            print("Tapez entrer pour continuer ou q pour quiter")
+            print()
+            print("Tapez entrer pour continuer ou n'importe quoi pour quiter")
             choix=input()
             if choix=="":
                 main()

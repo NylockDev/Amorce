@@ -128,7 +128,7 @@ def reperage_paire(info_cable:list,pair_to_lcr:int):
     TORON = ('Ba','Be','J','M','N','R','Ve','Vi')
     TETE = TORON
     TETE_2x=TORON
-    pair = 0
+    pair = []
     TYPE = "A"
     resultat = ""
     if cable == 28:
@@ -172,7 +172,7 @@ P{amorce.index(pair)+1} {pair}
             compteur_amorce.append(i)
             compteur_iter.append(i)
 
-            if i == pair_to_lcr -1:
+            if i == pair_to_lcr:
                 break
                 
 
@@ -206,20 +206,12 @@ P{amorce.index(pair)+1} {pair}
             if len(compteur_index_pair) == 27 +1:
                 compteur_index_pair = []
 
-            
-            # if cable == 224:
-            #     if len(compteur_toron) == 27 +1:
-            #         index_toron +=1
-            #         numero_toron +=1
-            #         compteur_toron = []
-
-
             # print(compteur_amorce)f 
             if len(compteur_amorce) == 6 +1:
                 compteur_amorce = []
                 numero_amorce += 1
             # print("i=",i)
-            pair = P[len(compteur_index_pair)]
+            pair = P[len(compteur_index_pair)-1]
 
         if not cable == 1792:
 
@@ -227,8 +219,9 @@ P{amorce.index(pair)+1} {pair}
         
          
             tete = TETE[index_tete]
+        # print(type(pair))
         iq,ia,quarte,amorce=recherche(pair,rempli)
-        
+        # print(type(pair)) 
         resultat =""
         tag= ""
         if not pair in P[0:14]:
@@ -340,6 +333,7 @@ la paire {pair_to_lcr} est situé dans le {numero_2x_tete}e(r) 224 gros filin {T
 
 
             tag= f"""
+
 {numero_2x_tete}e 224 Gros filin {TETE_2x[index_2x_tete]}
  Toron {numero_toron} Petit filin {TORON[index_toron]}
  A {numero_amorce}
@@ -364,13 +358,12 @@ la paire {pair_to_lcr} est situé dans le {numero_2x_tete}e(r) 224 gros filin {T
             
             toron=TORON[index_toron]
             resultat = (f"""
-
-
-                         
+                        
 la paire {pair_to_lcr} est situé dans le Toron {TORON.index(toron)+1} filin {toron} , Amorce {numero_amorce} ( amorce {ia+1}), Type {TYPE} Quarte {iq+1} dont les couleur sont  {quarte} Paire {amorce.index(pair)+1} {pair}""")
     
 
             tag= f"""
+
 Toron {numero_toron}
 filin {toron}
 A {numero_amorce}
@@ -387,6 +380,7 @@ la paire {pair_to_lcr} a pour couleur {pair} est situé dans le Toron filin {TOR
     
 
             tag= f"""
+
 Toron {TORON[index_toron]}
 filin {toron}
 A {numero_amorce}
@@ -402,7 +396,7 @@ if __name__ == "__main__":
     
 
     info=[896,True]
-    pair_tolc= 2
+    pair_tolc= 1
 
     resultat,t1g=reperage_paire(info,pair_tolc)
 
