@@ -66,12 +66,12 @@ def main():
         os.system(" figlet projet AMORCE | lolcat")
         print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
         print(Fore.CYAN+"●❯────────────────❮●●❯─────●❯────────────────❮●●❯──────────────────❮●)")
-        print(Back.RED+"version pour nt et posix\nV1.0.2"); print()
+        print(Back.RED+"version pour nt et posix\nV1.1.0"); print()
         os.system(" cat opp | lolcat")
     else:
 
         print(Fore.CYAN+"       "+ico)
-        print(Fore.BLUE+"                                     V1.0.2")
+        print(Fore.BLUE+"                                     V1.1.0")
         print(Fore.RED+" ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬ ◆For Windows ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬+ ")
         print()       
 

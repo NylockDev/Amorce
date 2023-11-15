@@ -1,6 +1,4 @@
-# PROJET AMORCE
-
- ![20231106_135603](screenshot%20/20231106_135603.jpg)
+![banner](screenshot%20/banner.jpg)
 
 **le programme ultime pour les etudiants en RESEAU INFORMATIQUE ET TELECOMMUNICATION pour le cours de Reseau d'Acces (RA)**
 
@@ -36,11 +34,14 @@ Pour mettre les paquets termux a jour si possible ensuite exécuter les commande
 - cd Amorce
 - python main.py
 - Enjoy🥳🥳
+
+## Doc 
+[tableau des couleurs](doc/quarte.pdf)
+
 ## SCREENSHOT
-
-![Screenshot_2023-11-04-21-02-29_Edited](screenshot%20/Screenshot_2023-11-04-21-02-29_Edited.jpg)
-
-![Screenshot_2023-11-04-21-03-03_Edited](screenshot%20/Screenshot_2023-11-04-21-03-03_Edited.jpg)
+![Screenshot_2023-11-12-18-25-23](screenshot%20/Screenshot_2023-11-12-18-25-23.png)
+![Screenshot_2023-11-15-20-13-21](screenshot%20/Screenshot_2023-11-15-20-13-21.png)
+![Screenshot_2023-11-15-20-13-38](screenshot%20/Screenshot_2023-11-15-20-13-38.png)
 📧 adoutoussaint5@gmail.com
 
 
