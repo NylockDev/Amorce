@@ -15,7 +15,7 @@ from tools import (LISTE,
                    liste_serie_rempli,
                    liste_cable,
                    reperage_paire,
-
+                    hello
 
                    )
 
@@ -32,6 +32,14 @@ init(autoreset=True)
 
 def main():
     
+    
+    
+    if not os.path.exists('.done'):
+        hello()
+        print("Taper entrer pour continuer")
+        input()
+        done=open('.done','w')
+        done.close()
     util.clear()
     ok=" 【✔】"
     description = " le programme ultime pour les etudiants en RIT"
@@ -57,7 +65,8 @@ def main():
 ╱╱╱╱╱╱╱╱╱╱╱╱╭╯┃╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
 ╱╱╱╱╱╱╱╱╱╱╱╱╰━╯╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱    
     """
-
+    
+    new=Fore.GREEN+"[NEW]"
     indispo=Fore.RED+" [INDISPONIBLE]"
     #LOGO= os.system(" cat opp.txt | lolcat")
     #print(type(LOGO))

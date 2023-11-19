@@ -7,13 +7,13 @@ rempli = False
 from tools import reperage_paire
 
 #CABLE
-info=[1792                  ,
+info=[28                  ,
 
 
       False]
 # PAIR A LOCALISER
 
-pair_tolc=      1
+pair_tolc=      7
 
 
 
