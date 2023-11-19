@@ -73,7 +73,7 @@ def main():
 # os.name='nt'
     if os.name=='posix':
         os.system(" figlet projet AMORCE | lolcat")
-        print( Fore.CYAN+"[Ghithub:"+Fore.RED+"NylockDev]")
+        print( Fore.CYAN+"[Github:"+Fore.RED+"NylockDev]")
         print(Fore.CYAN+"●❯────────────────❮●●❯─────●❯────────────────❮●●❯──────────────────❮●)")
         print(Back.RED+"version pour nt et posix\nV1.1.0"); print()
         os.system(" cat opp | lolcat")
@@ -81,7 +81,7 @@ def main():
 
         print(Fore.CYAN+"       "+ico)
         print(Fore.BLUE+"                                     V1.1.0")
-        print(Fore.RED+" ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬ ◆For Windows ◆ ▬▬▬▬▬▬ ❴✪❵ ▬▬▬▬▬▬+ ")
+        print(Fore.RED+" ◆ ▬▬▬▬▬▬▬▬▬▬▬▬ ◆For Windows ◆ ▬▬▬▬▬▬ ▬▬▬▬▬▬+ ")
         print()       
 
     print()
@@ -109,8 +109,8 @@ def main():
             util.clear()
             print(logo)
 
+            print(Fore.CYAN+" Le cable est-il rempli oui ou non? ou tapez 's' pour rentrez plutot la serie du cable")
             while True:
-                print(Fore.CYAN+" Le cable est-il rempli oui ou non? ou tapez 's' pour rentrez plutot la serie du cable")
                 msg_err=" tapez 'oui' ou 'non' ou 's'  "
 
                 contenance_oil = input( msg_err)            
