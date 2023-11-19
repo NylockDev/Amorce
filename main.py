@@ -2,7 +2,7 @@
 try:
     from colorama import Fore, Back, Style,init
 except ModuleNotFoundError:
-    print("\033[31m"+" ERREUR: le module colorama n'est pas installé faite pip install -r requirement.txt ou pip install colorama"+"\033[0m")
+    print("\033[31m"+" ERREUR: le module colorama n'est pas installé executez \" pip install -r requirement.txt ou pip install colorama\"\033[0m")
     exit()
 import os,sys
 from time import sleep
@@ -36,7 +36,7 @@ def main():
     
     if not os.path.exists('.done'):
         hello()
-        print("Taper entrer pour continuer")
+        print("Taper sur la touche entrer pour continuer")
         input()
         done=open('.done','w')
         done.close()
@@ -45,14 +45,14 @@ def main():
     description = " le programme ultime pour les etudiants en RIT"
     logo="""
             
-
-┏━┓░░░░░░░┏┓░░░┏┓░  ┏━━┓┏━┳━┓┏━┓┏━┓┏━┓┏━┓
-┃╋┃┏┳┓┏━┓░┣┫┏━┓┃┗┓  ┃┏┓┃┃┃┃┃┃┃┃┃┃╋┃┃┏┛┃┳┛
-┃┏┛┃┏┛┃╋┃┏┛┃┃┻┫┃┏┫  ┃┣┫┃┃┃┃┃┃┃┃┃┃┓┫┃┗┓┃┻┓
-┗┛░┗┛░┗━┛┗━┛┗━┛┗━┛  ┗┛┗┛┗┻━┻┛┗━┛┗┻┛┗━┛┗━┛
-
-
-
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+╭━╮╭━━╮╭━━╮╭━━╮╭━╮╭━━╮╭━━╮╭━━╮   ╭━━╮╭━━╮╭╮╭━╮╭━━╮
+┃╭╯┃┃━┫┃╭╮┃┃┃━┫┃╭╯┃╭╮┃┃╭╮┃┃┃━┫   ┃╭╮┃┃╭╮┃┣┫┃╭╯┃┃━┫
+┃┃╱┃┃━┫┃╰╯┃┃┃━┫┃┃╱┃╭╮┃┃╰╯┃┃┃━┫   ┃╰╯┃┃╭╮┃┃┃┃┃╱┃┃━┫
+╰╯╱╰━━╯┃╭━╯╰━━╯╰╯╱╰╯╰╯╰━╮┃╰━━╯   ┃╭━╯╰╯╰╯╰╯╰╯╱╰━━╯
+╱╱╱╱╱╱╱┃┃╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃╱╱╱╱   ┃┃╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
+╱╱╱╱╱╱╱╰╯╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯╱╱╱╱   ╰╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱
 
     """
     ico = """
@@ -97,6 +97,8 @@ def main():
     print()
     print(Fore.LIGHTWHITE_EX+"    [4]"+Style.BRIGHT+Fore.BLUE+" Donner les couleurs d'une paire a partir des informations fourni ",indispo)
     print()
+    print(Fore.BLUE+"    [5] afficher le tableau de la structure du cable de 28 paires"+Fore.GREEN+" "+new)
+    print()
     print(Style.BRIGHT+" Tapez 'q' pour quiter")
     
     while True:
@@ -108,7 +110,7 @@ def main():
             print(logo)
 
             while True:
-                print(Fore.CYAN+" Le cable est-il rempli ou non si ce n'est pas donné tapez 's' pour rentrez plutot la serie")
+                print(Fore.CYAN+" Le cable est-il rempli oui ou non? ou tapez 's' pour rentrez plutot la serie du cable")
                 msg_err=" tapez 'oui' ou 'non' ou 's'  "
 
                 contenance_oil = input( msg_err)            
@@ -122,42 +124,43 @@ def main():
                     break
 
                 elif contenance_oil == 's':
+                    while True:
+                        serie = input(" quel est la serie? ")
 
-                    serie = input(" quel est la serie? ")
+                        if serie in liste_serie_nr:
+                            contenance_oil = False
+                            break
 
-                    if serie in liste_serie_nr:
-                        contenance_oil = False
-                        break
-                    
-                    elif serie in liste_serie_rempli:
-                        contenance_oil = True
-                        break
-                    else:
-                        print(Fore.RED+" la serie n'est pas reconnu")
+                        elif serie in liste_serie_rempli:
+                            contenance_oil = True
+                            break
+
+                        else:
+                            print(Fore.RED+" la serie n'est pas reconnu")
+                    break
                 else:
                     print(Fore.RED+" Entreé Invalide")
 
             while True:
                 try:
-                    cable = int(input(Fore.YELLOW+" Quel est la capacité du cable? ex(1792)  "))
+                    cable = int(input(Fore.YELLOW+" Quel est la capacité du cable? ex(224)  "))
                     if not cable in liste_cable:
                         print(Fore.RED+"cable standardisé non reconnue ")
                         for i in liste_cable:
-                            print(Fore.YELLOW+f" cable de : {i}p ")
+                            print(Fore.YELLOW+f" cable de: {i}p ")
+                        print("sont reconnus")
                     elif cable < 28:
                         print(" les cables inferieurs à 28 paires ne sont pas pris en charge")
                     else:
                         pair_to_lct=1e11
                         while pair_to_lct > cable:
-                            pair_to_lct = int(input("Entrez maitenant la paire que vous souhaitiez reperer dans le cable de "+str(cable)+" paires "))
+                            pair_to_lct = int(input(Fore.LIGHTBLUE_EX+"Entrez maitenant la paire que vous souhaitiez reperer dans le cable de "+str(cable)+" paires "))
                             if pair_to_lct > cable:
-                                print(Fore.LIGHTRED_EX+"  la paire à localiser ne doit pas etre superieur au cable!")
-                            if pair_to_lct <= cable:
-                                break
+                                print(Fore.LIGHTRED_EX+"ERREUR:  la paire à reperer ne peut pas être superieur au cable!")
                         break
                 except ValueError:
                     print(Fore.RED+" entrez une valeur numerique svp")
-                    sleep(2)
+                    util.barre_chargement()
                     util.clear()
                     print(logo)
 
@@ -198,13 +201,13 @@ def main():
 
             print()
             print(Fore.BLUE+" cable: "+str(cable)+ " paires")
-            if contenance_oil: print(Fore.BLUE+"rempli: oui")
+            if contenance_oil: print(Fore.BLUE+" rempli: oui")
             else: print(Fore.BLUE+" rempli: non")
-            print(Fore.BLUE+Fore.RED+mark)
+            print(Style.DIM+Fore.LIGHTBLUE_EX+mark)
             for i in resultat:
                 print(Fore.GREEN+i,end='')
                 sleep(0.02)
-            
+            print()
             util.barre_chargement()
             for i in tag:
                 print(Fore.YELLOW+Style.BRIGHT+i,end="")
@@ -228,14 +231,19 @@ def main():
             print(Fore.RED+"Fonctionnalité indisponible")
         elif choix == '4':
             print(Fore.RED+" Fonctionnalité Indisponible")
+        elif choix == '5':
+            print("Ouverture du fichier pdf...")
+            os.system("xdg-open doc/quarte.pdf")
+
+            util.clock()
         elif choix =='q':
             
             print(Fore.CYAN+" MERCI!!")
             print(r"""
   ✋
    \ 😜                         Auteur:    { Kouadio Toussaint }
-                                Ghithub :  { NylockDev  }
-                                mail:     {adoutoussaint5@gmail.com}
+      |                          Ghithub :  { NylockDev  }
+      |                          mail:     {adoutoussaint5@gmail.com}
       ((>
      / \
                   """,end='')
