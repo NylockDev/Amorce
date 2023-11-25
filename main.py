@@ -233,7 +233,9 @@ def main():
             print(Fore.RED+" Fonctionnalité Indisponible")
         elif choix == '5':
             print("Ouverture du fichier pdf...")
-            os.system("xdg-open doc/quarte.pdf")
+            if os.name=='posix':
+                os.system("xdg-open doc/quarte.pdf")
+            else: os.system("start doc/quarte.pdf ")
 
             util.clock()
         elif choix =='q':
