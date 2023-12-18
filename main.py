@@ -213,6 +213,9 @@ def main():
                 print(Fore.YELLOW+Style.BRIGHT+i,end="")
                 sleep(0.02)
             print()
+            if cable == 448 or 896:
+                pass
+
             print("Tapez entrer pour continuer ou n'importe quoi pour quiter")
             choix=input()
             if choix=="":

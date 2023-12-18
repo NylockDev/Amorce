@@ -281,7 +281,8 @@ A{numero_amorce}
 Type {TYPE}
 Q{iq+1} ({quarte[0][0]}-{quarte[0][1]}; {quarte[1][0]}-{quarte[1][1]})
 P{amorce.index(pair)+1} ({pair[0]}-{pair[1]})
-                                        """
+                                       
+Le TAP est T{numero_tete}A{numero_amorce}P{amorce.index(pair)+1}"""
     
         if cable == 1792:
             index_2x_tete=0

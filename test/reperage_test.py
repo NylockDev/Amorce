@@ -3,17 +3,18 @@ from colorama import Fore,Back, Style, init
 
 init(autoreset=True)
 sys.path.append("..")
-rempli = False
+rempli = True
 from tools import reperage_paire
 
 #CABLE
-info=[28                  ,
+info=[896                 ,
 
 
-      False]
+      True]
 # PAIR A LOCALISER
 
-pair_tolc=      7
+pair_tolc=      490
+8
 
 
 
